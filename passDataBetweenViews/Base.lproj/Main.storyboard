@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,27 +26,58 @@
                                     <segue destination="T0M-wK-zeP" kind="show" id="JL1-WS-t9N"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AIz-cB-Oiu">
-                                <rect key="frame" x="16" y="88" width="343" height="648"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-26-e9E">
+                                <rect key="frame" x="0.0" y="82" width="375" height="730"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="toDoCell" id="UvK-Hw-clX">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UvK-Hw-clX" id="8Hm-J4-Tie">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="s6c-cj-5mi"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AVM-Bh-SzW"/>
+                                </connections>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fj9-uV-5Sd">
+                                <rect key="frame" x="165.66666666666666" y="52" width="43.333333333333343" height="33.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvp-Ca-Ydl">
+                                        <rect key="frame" x="0.0" y="0.0" width="43.333333333333336" height="33.666666666666664"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Xvp-Ca-Ydl" secondAttribute="height" multiplier="43:33" id="qEi-YS-W2l"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Xvp-Ca-Ydl" firstAttribute="top" secondItem="Fj9-uV-5Sd" secondAttribute="top" id="GnE-VS-tQG"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AIz-cB-Oiu" firstAttribute="top" secondItem="h9E-G2-j9Y" secondAttribute="bottom" constant="14" id="6Ic-ig-mm7"/>
-                            <constraint firstItem="AIz-cB-Oiu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wd1-QI-pj8"/>
+                            <constraint firstItem="esZ-26-e9E" firstAttribute="top" secondItem="h9E-G2-j9Y" secondAttribute="bottom" constant="8" id="4tR-Ww-WhQ"/>
+                            <constraint firstItem="h9E-G2-j9Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="AwL-ct-J4j"/>
+                            <constraint firstItem="Xvp-Ca-Ydl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VzM-S0-0co"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h9E-G2-j9Y" secondAttribute="trailing" constant="16" id="bkr-RX-SUZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AIz-cB-Oiu" secondAttribute="trailing" constant="16" id="iLb-RG-juU"/>
                             <constraint firstItem="h9E-G2-j9Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="leH-Ic-Y8T"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AIz-cB-Oiu" secondAttribute="bottom" constant="42" id="llo-NL-BUm"/>
+                            <constraint firstItem="Xvp-Ca-Ydl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="n3M-6i-7Zy"/>
+                            <constraint firstItem="esZ-26-e9E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ofH-3h-JMe"/>
+                            <constraint firstAttribute="bottom" secondItem="esZ-26-e9E" secondAttribute="bottom" id="pXp-PS-zDJ"/>
+                            <constraint firstItem="esZ-26-e9E" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sva-RS-g7O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="mainTextView" destination="AIz-cB-Oiu" id="Dux-j4-Qcs"/>
+                        <outlet property="mainTableView" destination="esZ-26-e9E" id="97h-0x-gkJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
